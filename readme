@@ -1,0 +1,12 @@
+bash ~/PX4_115/Tools/setup/ubuntu.sh
+echo "source ~/px4_ros_com_ws/install/setup.bash" >> ~/.bashrc
+source ~/.bashrc
+colcon build --symlink-install --packages-select px4_multi_plan px4_single_plan
+source ~/px4_ros_com_ws/install/setup.bash
+ros2 launch px4_multi_plan offboard_velocity_control.launch.py
+
+dupe velocity control _ x.py
+increase offboard velocity control index
+swarm config.yaml add another drone
+ln 395 offboard_control = OffboardControl_4('px4_4')
+ln 34 setup.py

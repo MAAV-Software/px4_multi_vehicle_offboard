@@ -1,0 +1,9 @@
+[console_scripts]
+control = px4_multi_plan.control:main
+offboard_control = px4_multi_plan.offboard_control:main
+processes = px4_multi_plan.processes:main
+simulation_node = px4_multi_plan.simulation_node:main
+velocity_control_1 = px4_multi_plan.velocity_control_1:main
+velocity_control_2 = px4_multi_plan.velocity_control_2:main
+velocity_control_3 = px4_multi_plan.velocity_control_3:main
+velocity_control_4 = px4_multi_plan.velocity_control_4:main

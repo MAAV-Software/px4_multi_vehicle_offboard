@@ -56,7 +56,7 @@ def generate_launch_description():
             prefix='gnome-terminal --'
         )
     )
-    nb_drones = 3
+    nb_drones = 4
     for i in range(nb_drones):
         namespace = f'px4_{i+1}'
         print(namespace)

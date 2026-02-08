@@ -30,6 +30,7 @@ setup(
                 f'velocity_control_1 = {package_name}.velocity_control_1:main',
                 f'velocity_control_2 = {package_name}.velocity_control_2:main',
                 f'velocity_control_3 = {package_name}.velocity_control_3:main',
+                f'velocity_control_4 = {package_name}.velocity_control_4:main',
                 f'control = {package_name}.control:main',
                 f'processes = {package_name}.processes:main',
                 f'simulation_node = {package_name}.simulation_node:main'
