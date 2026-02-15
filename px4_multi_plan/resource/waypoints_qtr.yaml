@@ -1,0 +1,16 @@
+dis_min: 1
+# threshold_angle: 0.4
+# Coordinates are in the North east down frame x -> y and y -> x
+# Search Area: 150ft (X) x 40ft (Y) | Altitude: -5 (Stay consistent with base)
+wp:
+  - {x: 0.0,  y: 0.0,  z: -5.0}  # Start/Home
+  - {x: 45.7, y: 0.0,  z: -5.0}  # End of Line 1
+  - {x: 45.7, y: 3.0,  z: -5.0}  # Shift
+  - {x: 0.0,  y: 3.0,  z: -5.0}  # Return Line 2
+  - {x: 0.0,  y: 6.0,  z: -5.0}  # Shift
+  - {x: 45.7, y: 6.0,  z: -5.0}  # End of Line 3
+  - {x: 45.7, y: 9.0,  z: -5.0}  # Shift
+  - {x: 0.0,  y: 9.0,  z: -5.0}  # Return Line 4
+  - {x: 0.0,  y: 12.2, z: -5.0}  # Shift to final edge
+  - {x: 45.7, y: 12.2, z: -5.0}  # Final Line
+  - {x: 0.0,  y: 0.0,  z: -5.0}  # Back to Home

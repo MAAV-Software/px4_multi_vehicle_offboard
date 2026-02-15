@@ -48,6 +48,8 @@ from rclpy.qos import QoSProfile, QoSReliabilityPolicy, QoSHistoryPolicy, QoSDur
 
 from px4_msgs.msg import OffboardControlMode
 from px4_msgs.msg import TrajectorySetpoint
+from px4_msgs.msg import TrajectoryWaypoint
+
 from px4_msgs.msg import VehicleStatus
 from px4_msgs.msg import VehicleAttitude
 from px4_msgs.msg import VehicleCommand
@@ -57,7 +59,7 @@ from geometry_msgs.msg import Vector3
 from std_msgs.msg import Bool
 
 
-class OffboardControl_1(Node):
+class OffboardControl_4(Node):
 
     def __init__(self,namespace):
         super().__init__('minimal_publisher')
@@ -100,7 +102,9 @@ class OffboardControl_1(Node):
         #Create publishers
         self.publisher_offboard_mode = self.create_publisher(OffboardControlMode, f'/{namespace}/fmu/in/offboard_control_mode', qos_profile)
         # self.publisher_velocity = self.create_publisher(Twist, '/fmu/in/setpoint_velocity/cmd_vel_unstamped', qos_profile)
-        self.publisher_trajectory = self.create_publisher(TrajectorySetpoint, f'/{namespace}/fmu/in/trajectory_setpoint', qos_profile)
+        # self.publisher_trajectory = self.create_publisher(TrajectorySetpoint, f'/{namespace}/fmu/in/trajectory_setpoint', qos_profile)
+        self.publisher_trajectory = self.create_publisher(TrajectoryWaypoint, f'/{namespace}/fmu/in/vehicle_trajectory_waypoint', qos_profile)
+
         self.vehicle_command_publisher_ = self.create_publisher(VehicleCommand, f"/{namespace}/fmu/in/vehicle_command", 10)
 
         
@@ -132,6 +136,8 @@ class OffboardControl_1(Node):
         # read the trajectory file
         self.read_trajectory()
         self.uav_id = int(namespace[-1])
+        for i in range(self.wp_n):
+            self.waypoints[i]['x'] = self.waypoints[i]['x']+10.0
 
 
     def arm_message_callback(self, msg):
@@ -219,7 +225,7 @@ class OffboardControl_1(Node):
         msg.param2 = param2
         msg.param7 = param7    # altitude value in takeoff command
         msg.command = command  # command ID
-        msg.target_system = 0 # target_system + 1  # system which should execute the command
+        msg.target_system = target_system+1  # system which should execute the command
         msg.target_component = 1  # component which should execute the command, 0 for all components
         msg.source_system = 1  # system sending the command
         msg.source_component = 1  # component sending the command
@@ -327,7 +333,7 @@ class OffboardControl_1(Node):
         # 取消定时器
         self.timer.cancel()
 
-    # publishes offboard control modes and velocity as trajectory setpoints
+    #publishes offboard control modes and velocity as trajectory setpoints
     def cmdloop_callback(self):
         if(self.offboardMode == False):
             # armed & takeoff
@@ -342,14 +348,12 @@ class OffboardControl_1(Node):
             offboard_msg.position = True
             offboard_msg.velocity = False
             offboard_msg.acceleration = False
-            self.publisher_offboard_mode.publish(offboard_msg)
-            self.get_logger().info(f'px4_1 send offboard set position cmd')            
+            self.publisher_offboard_mode.publish(offboard_msg)            
 
             # Compute distance in the world frame
             
                        
             # self.current_wp_id = self.wp_id
-
             point1 = [self.waypoints[self.wp_id]['x'],
                       self.waypoints[self.wp_id]['y'],
                       self.waypoints[self.wp_id]['z']]
@@ -359,47 +363,21 @@ class OffboardControl_1(Node):
             # self.get_logger().info(f'wp pos={point1},self pos = {point2}')
             
             distance = self.cal_dis(point1, point2)
+            # self.get_logger().info(f'd = {distance}')
+            if(distance <= self.dis_min and self.wp_id<self.wp_n):
+                self.wp_id = self.wp_id+1
+                if(self.wp_id == self.wp_n):
+                    self.wp_id = 0
+                # log for change waypoints
+                # self.get_logger().info(f'change to wp{self.wp_id}:{self.waypoints[self.wp_id]}')
+            
             pos_x = self.waypoints[self.wp_id]['x']
             pos_y = self.waypoints[self.wp_id]['y']
             pos_z = self.waypoints[self.wp_id]['z']
 
-            target = [pos_x, pos_y, pos_z]
-            current = [self.pos.x, self.pos.y, self.pos.z]
 
-            # Calculate errors per axis
-            err_x = abs(target[0] - current[0])
-            err_y = abs(target[1] - current[1])
-            err_z = abs(target[2] - current[2])
-
-            self.get_logger().info(
-                f"\n--- WP {self.wp_id} DEBUG ---\n"
-                f"Target: X:{target[0]:.2f} Y:{target[1]:.2f} Z:{target[2]:.2f}\n"
-                f"Actual: X:{current[0]:.2f} Y:{current[1]:.2f} Z:{current[2]:.2f}\n"
-                f"Errors: dX:{err_x:.2f} dY:{err_y:.2f} dZ:{err_z:.2f}\n"
-                f"Total Dist: {distance:.2f} | Min Required: {self.dis_min}",
-                throttle_duration_sec=1.0 # Log every 1 second to avoid spam
-            )
-
-            # self.get_logger().info(f'd = {distance}')
-            if(distance <= self.dis_min and self.wp_id<self.wp_n):
-                self.wp_id = self.wp_id + 1
-                if(self.wp_id == self.wp_n):
-                    # Instead of looping to 0, let's hold at the last waypoint 
-                    # or you could trigger a Land command here.
-                    self.get_logger().info('Search Pattern Complete. Holding at final waypoint.')
-                    self.wp_id = self.wp_n - 1 
-                else:
-                    self.get_logger().info(f'Moving to wp{self.wp_id}:{self.waypoints[self.wp_id]}')
-                # self.wp_id = self.wp_id+1
-                # if(self.wp_id == self.wp_n):
-                #     self.wp_id = 0
-                # # log for change waypoints
-                # self.get_logger().info(f'change to wp{self.wp_id}:{self.waypoints[self.wp_id]}')
-            
-
-            self.get_logger().info(f'{pos_x}')
             # Create and publish TrajectorySetpoint message with NaN values for position and acceleration
-            trajectory_msg = TrajectorySetpoint()
+            trajectory_msg = TrajectoryWaypoint()
             trajectory_msg.timestamp = int(Clock().now().nanoseconds / 1000)
             trajectory_msg.position[0] = pos_x
             trajectory_msg.position[1] = pos_y
@@ -411,17 +389,15 @@ class OffboardControl_1(Node):
             trajectory_msg.acceleration[1] = float('nan')
             trajectory_msg.acceleration[2] = float('nan')
             trajectory_msg.yaw = self.yaw
-            trajectory_msg.yawspeed = float('nan')
-
+            trajectory_msg.yaw_speed = float('nan')
 
             # self.get_logger().info(f'Curr Point: ({pos_x},{pos_y},{pos_z})\nCurr Distance From Next: {distance}')
-
             self.publisher_trajectory.publish(trajectory_msg)
 
 
 def main(args=None):
     rclpy.init(args=args)
-    offboard_control = OffboardControl_1('px4_1')
+    offboard_control = OffboardControl_4('px4_4')
     # offboard_control.read_trajectory()
 
     rclpy.spin(offboard_control)

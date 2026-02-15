@@ -17,7 +17,8 @@ class SimulationScript(Node):
         super().__init__('simulation_node')
         
         commands = [# Run the Micro XRCE-DDS Agent
-            "MicroXRCEAgent udp4 -p 8888"]
+            "MicroXRCEAgent udp4 -p 8888",
+            "~/PX4_115/build/px4_sitl_default/bin/px4 -i 1"]
         self.read_swarm_config()
         i = 0
         for key, item in self.swarm_config.items():

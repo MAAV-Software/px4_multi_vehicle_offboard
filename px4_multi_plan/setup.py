@@ -1,13 +1,14 @@
 import os
 from glob import glob
 from setuptools import setup
+from setuptools import find_packages
 
 package_name = 'px4_multi_plan'
 
 setup(
     name=package_name,
     version='0.0.0',
-    packages=[package_name],
+    packages=find_packages(),
     data_files=[
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
@@ -30,6 +31,7 @@ setup(
                 f'velocity_control_1 = {package_name}.velocity_control_1:main',
                 f'velocity_control_2 = {package_name}.velocity_control_2:main',
                 f'velocity_control_3 = {package_name}.velocity_control_3:main',
+                f'velocity_control_4 = {package_name}.velocity_control_4:main',
                 f'control = {package_name}.control:main',
                 f'processes = {package_name}.processes:main',
                 f'simulation_node = {package_name}.simulation_node:main'
