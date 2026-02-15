@@ -1,0 +1,37 @@
+[2.827s] Invoking command in '/home/maav/px4_multi_vehicle_offboard/build/px4_multi_plan': PYTHONPATH=/home/maav/px4_multi_vehicle_offboard/build/px4_multi_plan/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/maav/px4_multi_vehicle_offboard/install/px4_multi_plan/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/maav/px4_multi_vehicle_offboard/build/px4_multi_plan/build --no-deps symlink_data
+[4.165s] running develop
+[4.166s] /home/maav/.local/lib/python3.10/site-packages/setuptools/command/develop.py:41: EasyInstallDeprecationWarning: easy_install command is deprecated.
+[4.166s] !!
+[4.167s] 
+[4.167s]         ********************************************************************************
+[4.167s]         Please avoid running ``setup.py`` and ``easy_install``.
+[4.168s]         Instead, use pypa/build, pypa/installer or other
+[4.168s]         standards-based tools.
+[4.168s] 
+[4.169s]         See https://github.com/pypa/setuptools/issues/917 for details.
+[4.169s]         ********************************************************************************
+[4.169s] 
+[4.169s] !!
+[4.169s]   easy_install.initialize_options(self)
+[5.085s] running egg_info
+[5.156s] writing px4_multi_plan.egg-info/PKG-INFO
+[5.157s] writing dependency_links to px4_multi_plan.egg-info/dependency_links.txt
+[5.158s] writing entry points to px4_multi_plan.egg-info/entry_points.txt
+[5.159s] writing requirements to px4_multi_plan.egg-info/requires.txt
+[5.160s] writing top-level names to px4_multi_plan.egg-info/top_level.txt
+[5.305s] reading manifest file 'px4_multi_plan.egg-info/SOURCES.txt'
+[5.311s] writing manifest file 'px4_multi_plan.egg-info/SOURCES.txt'
+[5.391s] running build_ext
+[5.392s] Creating /home/maav/px4_multi_vehicle_offboard/install/px4_multi_plan/lib/python3.10/site-packages/px4-multi-plan.egg-link (link to .)
+[5.395s] Installing control script to /home/maav/px4_multi_vehicle_offboard/install/px4_multi_plan/lib/px4_multi_plan
+[5.396s] Installing offboard_control script to /home/maav/px4_multi_vehicle_offboard/install/px4_multi_plan/lib/px4_multi_plan
+[5.397s] Installing processes script to /home/maav/px4_multi_vehicle_offboard/install/px4_multi_plan/lib/px4_multi_plan
+[5.397s] Installing simulation_node script to /home/maav/px4_multi_vehicle_offboard/install/px4_multi_plan/lib/px4_multi_plan
+[5.398s] Installing velocity_control_1 script to /home/maav/px4_multi_vehicle_offboard/install/px4_multi_plan/lib/px4_multi_plan
+[5.399s] Installing velocity_control_2 script to /home/maav/px4_multi_vehicle_offboard/install/px4_multi_plan/lib/px4_multi_plan
+[5.400s] Installing velocity_control_3 script to /home/maav/px4_multi_vehicle_offboard/install/px4_multi_plan/lib/px4_multi_plan
+[5.400s] Installing velocity_control_4 script to /home/maav/px4_multi_vehicle_offboard/install/px4_multi_plan/lib/px4_multi_plan
+[5.402s] 
+[5.402s] Installed /home/maav/px4_multi_vehicle_offboard/build/px4_multi_plan
+[5.403s] running symlink_data
+[5.506s] Invoked command in '/home/maav/px4_multi_vehicle_offboard/build/px4_multi_plan' returned '0': PYTHONPATH=/home/maav/px4_multi_vehicle_offboard/build/px4_multi_plan/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/maav/px4_multi_vehicle_offboard/install/px4_multi_plan/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/maav/px4_multi_vehicle_offboard/build/px4_multi_plan/build --no-deps symlink_data

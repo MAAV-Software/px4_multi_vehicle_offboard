@@ -18,7 +18,7 @@ class SimulationScript(Node):
         
         commands = [# Run the Micro XRCE-DDS Agent
             "MicroXRCEAgent udp4 -p 8888",
-            "~/PX4_115/build/px4_sitl_default/bin/px4 -i 1"]
+            "make px4_sitl gz_x500"]
         self.read_swarm_config()
         i = 0
         for key, item in self.swarm_config.items():
@@ -47,6 +47,7 @@ class SimulationScript(Node):
         # Loop through each command in the list
         for command in commands:
             # Each command is run in a new tab of the gnome-terminal
+            self.get_logger().error(f"ze cmd: {command}")
             subprocess.run(["gnome-terminal", "--tab", "--", "bash", "-c", command + "; exec bash"])
 
             # Pause between each command
@@ -69,6 +70,7 @@ class SimulationScript(Node):
                 config = yaml.safe_load(file)
 
             # 获取参数
+            self.get_logger().info(f"{len(self.swarm_config)}")
             self.swarm_config = config['swarm']
             self.nb_drone = len(self.swarm_config)
             

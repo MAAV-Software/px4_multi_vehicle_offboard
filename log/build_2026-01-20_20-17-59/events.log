@@ -1,0 +1,96 @@
+[0.000000] (-) TimerEvent: {}
+[0.000868] (-) JobUnselected: {'identifier': 'px4_single_plan'}
+[0.001033] (px4_multi_plan) JobQueued: {'identifier': 'px4_multi_plan', 'dependencies': OrderedDict()}
+[0.001121] (px4_multi_plan) JobStarted: {'identifier': 'px4_multi_plan'}
+[0.097961] (-) TimerEvent: {}
+[0.198480] (-) TimerEvent: {}
+[0.299004] (-) TimerEvent: {}
+[0.399547] (-) TimerEvent: {}
+[0.500048] (-) TimerEvent: {}
+[0.600573] (-) TimerEvent: {}
+[0.701078] (-) TimerEvent: {}
+[0.801573] (-) TimerEvent: {}
+[0.902144] (-) TimerEvent: {}
+[1.002722] (-) TimerEvent: {}
+[1.103284] (-) TimerEvent: {}
+[1.203817] (-) TimerEvent: {}
+[1.304495] (-) TimerEvent: {}
+[1.405174] (-) TimerEvent: {}
+[1.505746] (-) TimerEvent: {}
+[1.606314] (-) TimerEvent: {}
+[1.706858] (-) TimerEvent: {}
+[1.807429] (-) TimerEvent: {}
+[1.907981] (-) TimerEvent: {}
+[2.008564] (-) TimerEvent: {}
+[2.109194] (-) TimerEvent: {}
+[2.209881] (-) TimerEvent: {}
+[2.310411] (-) TimerEvent: {}
+[2.410951] (-) TimerEvent: {}
+[2.511538] (-) TimerEvent: {}
+[2.612097] (-) TimerEvent: {}
+[2.712667] (-) TimerEvent: {}
+[2.802845] (px4_multi_plan) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', 'setup.py', 'develop', '--editable', '--build-directory', '/home/maav/px4_multi_vehicle_offboard/build/px4_multi_plan/build', '--no-deps', 'symlink_data'], 'cwd': '/home/maav/px4_multi_vehicle_offboard/build/px4_multi_plan', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'maav', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/maav/IARC_mission_10/software_ws/install/px4_ros_com/lib:/home/maav/IARC_mission_10/software_ws/install/px4_msgs/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/home/maav', 'OLDPWD': '/home/maav', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'SYSTEMD_EXEC_PID': '1776', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/maav/px4_ros_com_ws/install:/home/maav/IARC_mission_10/software_ws/install', 'ROS_DISTRO': 'humble', 'LOGNAME': 'maav', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'maav', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/opt/ros/humble/bin:/opt/gcc-arm-none-eabi-9-2020-q2-update/bin:/home/maav/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/maav-ThinkPad-P50:@/tmp/.ICE-unix/1753,unix/maav-ThinkPad-P50:/tmp/.ICE-unix/1753', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/6411dc24_85f2_46e4_b0c7_5446df59b21b', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.4GUUJ3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'GNOME_TERMINAL_SERVICE': ':1.114', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/maav/px4_ros_com_ws/install/px4_single_plan:/home/maav/px4_ros_com_ws/install/px4_multi_plan:/home/maav/IARC_mission_10/software_ws/install/px4_ros_com:/home/maav/IARC_mission_10/software_ws/install/px4_msgs:/opt/ros/humble', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/maav/px4_multi_vehicle_offboard/build/px4_multi_plan', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/maav/px4_multi_vehicle_offboard/build/px4_multi_plan/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/maav/px4_multi_vehicle_offboard/install/px4_multi_plan/lib/python3.10/site-packages:/home/maav/px4_ros_com_ws/build/px4_single_plan:/home/maav/px4_ros_com_ws/install/px4_single_plan/lib/python3.10/site-packages:/home/maav/px4_ros_com_ws/build/px4_multi_plan:/home/maav/px4_ros_com_ws/install/px4_multi_plan/lib/python3.10/site-packages:/home/maav/IARC_mission_10/software_ws/install/px4_ros_com/local/lib/python3.10/dist-packages:/home/maav/IARC_mission_10/software_ws/install/px4_msgs/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1', 'VTE_VERSION': '6800', 'CMAKE_PREFIX_PATH': '/home/maav/IARC_mission_10/software_ws/install/px4_ros_com:/home/maav/IARC_mission_10/software_ws/install/px4_msgs'}, 'shell': False}
+[2.812784] (-) TimerEvent: {}
+[2.913328] (-) TimerEvent: {}
+[3.013871] (-) TimerEvent: {}
+[3.114420] (-) TimerEvent: {}
+[3.214960] (-) TimerEvent: {}
+[3.315490] (-) TimerEvent: {}
+[3.416036] (-) TimerEvent: {}
+[3.516603] (-) TimerEvent: {}
+[3.617149] (-) TimerEvent: {}
+[3.717682] (-) TimerEvent: {}
+[3.818231] (-) TimerEvent: {}
+[3.918804] (-) TimerEvent: {}
+[4.019361] (-) TimerEvent: {}
+[4.119905] (-) TimerEvent: {}
+[4.141000] (px4_multi_plan) StdoutLine: {'line': b'running develop\n'}
+[4.141833] (px4_multi_plan) StderrLine: {'line': b'/home/maav/.local/lib/python3.10/site-packages/setuptools/command/develop.py:41: EasyInstallDeprecationWarning: easy_install command is deprecated.\n'}
+[4.142180] (px4_multi_plan) StderrLine: {'line': b'!!\n'}
+[4.142469] (px4_multi_plan) StderrLine: {'line': b'\n'}
+[4.142695] (px4_multi_plan) StderrLine: {'line': b'        ********************************************************************************\n'}
+[4.142908] (px4_multi_plan) StderrLine: {'line': b'        Please avoid running ``setup.py`` and ``easy_install``.\n'}
+[4.143115] (px4_multi_plan) StderrLine: {'line': b'        Instead, use pypa/build, pypa/installer or other\n'}
+[4.143350] (px4_multi_plan) StderrLine: {'line': b'        standards-based tools.\n'}
+[4.143576] (px4_multi_plan) StderrLine: {'line': b'\n'}
+[4.143781] (px4_multi_plan) StderrLine: {'line': b'        See https://github.com/pypa/setuptools/issues/917 for details.\n'}
+[4.143984] (px4_multi_plan) StderrLine: {'line': b'        ********************************************************************************\n'}
+[4.144188] (px4_multi_plan) StderrLine: {'line': b'\n'}
+[4.144420] (px4_multi_plan) StderrLine: {'line': b'!!\n'}
+[4.144626] (px4_multi_plan) StderrLine: {'line': b'  easy_install.initialize_options(self)\n'}
+[4.220086] (-) TimerEvent: {}
+[4.320662] (-) TimerEvent: {}
+[4.421217] (-) TimerEvent: {}
+[4.521794] (-) TimerEvent: {}
+[4.622359] (-) TimerEvent: {}
+[4.722917] (-) TimerEvent: {}
+[4.823501] (-) TimerEvent: {}
+[4.924054] (-) TimerEvent: {}
+[5.024624] (-) TimerEvent: {}
+[5.073240] (px4_multi_plan) StdoutLine: {'line': b'running egg_info\n'}
+[5.124801] (-) TimerEvent: {}
+[5.138062] (px4_multi_plan) StdoutLine: {'line': b'writing px4_multi_plan.egg-info/PKG-INFO\n'}
+[5.139560] (px4_multi_plan) StdoutLine: {'line': b'writing dependency_links to px4_multi_plan.egg-info/dependency_links.txt\n'}
+[5.140492] (px4_multi_plan) StdoutLine: {'line': b'writing entry points to px4_multi_plan.egg-info/entry_points.txt\n'}
+[5.141191] (px4_multi_plan) StdoutLine: {'line': b'writing requirements to px4_multi_plan.egg-info/requires.txt\n'}
+[5.141757] (px4_multi_plan) StdoutLine: {'line': b'writing top-level names to px4_multi_plan.egg-info/top_level.txt\n'}
+[5.224984] (-) TimerEvent: {}
+[5.278775] (px4_multi_plan) StdoutLine: {'line': b"reading manifest file 'px4_multi_plan.egg-info/SOURCES.txt'\n"}
+[5.283794] (px4_multi_plan) StdoutLine: {'line': b"writing manifest file 'px4_multi_plan.egg-info/SOURCES.txt'\n"}
+[5.325145] (-) TimerEvent: {}
+[5.353038] (px4_multi_plan) StdoutLine: {'line': b'running build_ext\n'}
+[5.353902] (px4_multi_plan) StdoutLine: {'line': b'Creating /home/maav/px4_multi_vehicle_offboard/install/px4_multi_plan/lib/python3.10/site-packages/px4-multi-plan.egg-link (link to .)\n'}
+[5.356846] (px4_multi_plan) StdoutLine: {'line': b'Installing control script to /home/maav/px4_multi_vehicle_offboard/install/px4_multi_plan/lib/px4_multi_plan\n'}
+[5.357536] (px4_multi_plan) StdoutLine: {'line': b'Installing offboard_control script to /home/maav/px4_multi_vehicle_offboard/install/px4_multi_plan/lib/px4_multi_plan\n'}
+[5.358124] (px4_multi_plan) StdoutLine: {'line': b'Installing processes script to /home/maav/px4_multi_vehicle_offboard/install/px4_multi_plan/lib/px4_multi_plan\n'}
+[5.358765] (px4_multi_plan) StdoutLine: {'line': b'Installing simulation_node script to /home/maav/px4_multi_vehicle_offboard/install/px4_multi_plan/lib/px4_multi_plan\n'}
+[5.359293] (px4_multi_plan) StdoutLine: {'line': b'Installing velocity_control_1 script to /home/maav/px4_multi_vehicle_offboard/install/px4_multi_plan/lib/px4_multi_plan\n'}
+[5.359830] (px4_multi_plan) StdoutLine: {'line': b'Installing velocity_control_2 script to /home/maav/px4_multi_vehicle_offboard/install/px4_multi_plan/lib/px4_multi_plan\n'}
+[5.360380] (px4_multi_plan) StdoutLine: {'line': b'Installing velocity_control_3 script to /home/maav/px4_multi_vehicle_offboard/install/px4_multi_plan/lib/px4_multi_plan\n'}
+[5.361301] (px4_multi_plan) StdoutLine: {'line': b'\n'}
+[5.361668] (px4_multi_plan) StdoutLine: {'line': b'Installed /home/maav/px4_multi_vehicle_offboard/build/px4_multi_plan\n'}
+[5.362198] (px4_multi_plan) StdoutLine: {'line': b'running symlink_data\n'}
+[5.425369] (-) TimerEvent: {}
+[5.443048] (px4_multi_plan) CommandEnded: {'returncode': 0}
+[5.485174] (px4_multi_plan) JobEnded: {'identifier': 'px4_multi_plan', 'rc': 0}
+[5.487730] (-) EventReactorShutdown: {}

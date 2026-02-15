@@ -48,8 +48,6 @@ from rclpy.qos import QoSProfile, QoSReliabilityPolicy, QoSHistoryPolicy, QoSDur
 
 from px4_msgs.msg import OffboardControlMode
 from px4_msgs.msg import TrajectorySetpoint
-from px4_msgs.msg import TrajectoryWaypoint
-
 from px4_msgs.msg import VehicleStatus
 from px4_msgs.msg import VehicleAttitude
 from px4_msgs.msg import VehicleCommand
@@ -102,9 +100,7 @@ class OffboardControl_4(Node):
         #Create publishers
         self.publisher_offboard_mode = self.create_publisher(OffboardControlMode, f'/{namespace}/fmu/in/offboard_control_mode', qos_profile)
         # self.publisher_velocity = self.create_publisher(Twist, '/fmu/in/setpoint_velocity/cmd_vel_unstamped', qos_profile)
-        # self.publisher_trajectory = self.create_publisher(TrajectorySetpoint, f'/{namespace}/fmu/in/trajectory_setpoint', qos_profile)
-        self.publisher_trajectory = self.create_publisher(TrajectoryWaypoint, f'/{namespace}/fmu/in/vehicle_trajectory_waypoint', qos_profile)
-
+        self.publisher_trajectory = self.create_publisher(TrajectorySetpoint, f'/{namespace}/fmu/in/trajectory_setpoint', qos_profile)
         self.vehicle_command_publisher_ = self.create_publisher(VehicleCommand, f"/{namespace}/fmu/in/vehicle_command", 10)
 
         
@@ -377,7 +373,7 @@ class OffboardControl_4(Node):
 
 
             # Create and publish TrajectorySetpoint message with NaN values for position and acceleration
-            trajectory_msg = TrajectoryWaypoint()
+            trajectory_msg = TrajectorySetpoint()
             trajectory_msg.timestamp = int(Clock().now().nanoseconds / 1000)
             trajectory_msg.position[0] = pos_x
             trajectory_msg.position[1] = pos_y
@@ -389,9 +385,8 @@ class OffboardControl_4(Node):
             trajectory_msg.acceleration[1] = float('nan')
             trajectory_msg.acceleration[2] = float('nan')
             trajectory_msg.yaw = self.yaw
-            trajectory_msg.yaw_speed = float('nan')
+            trajectory_msg.yawspeed = float('nan')
 
-            # self.get_logger().info(f'Curr Point: ({pos_x},{pos_y},{pos_z})\nCurr Distance From Next: {distance}')
             self.publisher_trajectory.publish(trajectory_msg)
 
 
